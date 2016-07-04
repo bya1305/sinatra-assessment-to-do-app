@@ -1,0 +1,24 @@
+/*===== Homepage =====*/
+h1, h2, h3 {
+  text-align: center;
+}
+.jumbotron {
+  margin-top:100px;
+}
+.jumbotron p {
+  text-align: center;
+}
+.btn {
+  padding: 20px;
+  font-size: 20px;
+}
+
+/*====== Signup Page ========*/
+.container .signup {
+  text-align:center;
+  border: 2px solid green;
+  max-width:40%;
+  margin: 0 auto;
+  margin-top: 250px;
+  padding: 40px;
+}
