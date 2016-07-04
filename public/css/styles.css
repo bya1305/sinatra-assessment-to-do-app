@@ -22,3 +22,50 @@ h1, h2, h3 {
   margin-top: 250px;
   padding: 40px;
 }
+
+
+/*===== Login Page =====*/
+
+.container .login {
+  text-align:center;
+  border: 2px solid green;
+  max-width:40%;
+  margin: 0 auto;
+  margin-top: 250px;
+  padding: 40px;
+}
+
+/*====== User Home page ======*/
+
+.logout {
+  font-size:20px;
+  margin-left:95%;
+}
+
+.user_list_title {
+  font-size: 50px;
+}
+
+.task_box {
+  margin-left: 45%;
+}
+.task_list {
+  border: 2px solid green;
+  margin-top: 50px;
+  min-height: 500px;
+}
+.task_list .ind_task p {
+  text-align: center;
+  font-size:20px;
+  border-bottom: solid 1px green;
+}
+.task_list .ind_task a {
+  text-align: right;
+  font-size: 20px;
+  float: right;
+  margin-right: 10px;
+}
+.task_list .ind_task input {
+  float:right;
+  font-size:10px;
+}

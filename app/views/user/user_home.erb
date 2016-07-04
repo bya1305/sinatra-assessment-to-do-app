@@ -1,1 +1,18 @@
-<h1>test</h1>
+<p class="logout"><a href="/logout">Log Out</a></p>
+
+<h1 class="user_list_title">Your List</h1>
+
+<form class="task_box" action="/user_home" method="post">
+  <input type="text" placeholder="Add Task" name="task">
+  <input type="submit" value="Add Task!">
+</form>
+
+<div class="container">
+  <div class="task_list">
+    <% Task.all.each do |task| %>
+      <div class="ind_task">
+        <p><%= task.content %><a class="edit" href="/user_home/<%= task.id %>">Edit</a><a class="delete" href="/delete">Done</a></p>
+      </div>
+    <% end %>
+  </div>
+</div>
