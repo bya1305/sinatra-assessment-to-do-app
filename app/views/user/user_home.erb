@@ -10,9 +10,11 @@
 <div class="container">
   <div class="task_list">
     <% Task.all.each do |task| %>
-      <div class="ind_task">
-        <p><%= task.content %><a class="edit" href="/user_home/<%= task.id %>">Edit</a><a class="delete" href="/delete">Done</a></p>
-      </div>
+      <% if task.user_id == session[:user_id] %>
+        <div class="ind_task">
+          <p><%= task.content %></p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
