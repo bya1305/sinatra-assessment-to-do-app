@@ -1,0 +1,9 @@
+<div class="container edit-page">
+  <h1> Edit Task </h1>
+  <br><br>
+    <form method="post" action="/user_home/<%=@task.id%>">
+      <input id="hidden" type="hidden" name="_method" value="PATCH">
+      <input type="text" name="content" value="<%= @task.content %>">
+      <input type="submit" value="submit">
+    </form>
+</div>

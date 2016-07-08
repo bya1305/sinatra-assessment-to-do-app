@@ -6,13 +6,18 @@
   <input type="text" placeholder="Add Task" name="task">
   <input type="submit" value="Add Task!">
 </form>
+<br><br>
+
+<h3>Click on a task to edit or delete it!</h3>
 
 <div class="container">
   <div class="task_list">
     <% Task.all.each do |task| %>
-      <div class="ind_task">
-        <p><%= task.content %><a class="edit" href="/user_home/<%= task.id %>">Edit</a><a class="delete" href="/delete">Done</a></p>
-      </div>
+      <% if task.user_id == session[:user_id] %>
+        <div class="ind_task">
+          <a href="/user_home/<%= task.id %>"><p><%= task.content %></p></a>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

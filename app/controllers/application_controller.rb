@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.find_by(:username => params[:username])
+    @user = User.find_by(:email => params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect '/user_home'
@@ -78,6 +78,50 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by_id(session[:user_id])
       @task = Task.create(:content => params[:task], :user_id => @user.id)
       redirect '/user_home'
+    end
+  end
+  get '/user_home/:id' do
+    if session[:user_id]
+      @task = Task.find_by_id(params[:id])
+      erb :'tasks/show_task'
+    else
+      redirect '/'
+    end
+  end
+  delete '/user_home/:id/delete' do
+    @task = Task.find_by_id(params[:id])
+    if session[:user_id]
+      @task = Task.find_by_id(params[:id])
+      if @task.user_id == session[:user_id]
+        @task.delete
+        redirect '/user_home'
+      else
+        redirect '/user_home'
+      end
+    else
+      redirect '/'
+    end
+  end
+  get '/user_home/:id/edit' do
+    if session[:user_id]
+      @task = Task.find_by_id(params[:id])
+      if @task.user_id == session[:user_id]
+       erb :'tasks/edit_task'
+      else
+        redirect '/user_home'
+      end
+    else
+      redirect '/'
+    end
+  end
+  patch '/user_home/:id' do
+    if params[:content] == ""
+      redirect to "/user_home/#{params[:id]}/edit"
+    else
+      @task = Task.find_by_id(params[:id])
+      @task.content = params[:content]
+      @task.save
+      redirect "/user_home"
     end
   end
 
