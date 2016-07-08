@@ -15,7 +15,11 @@
     <% Task.all.each do |task| %>
       <% if task.user_id == session[:user_id] %>
         <div class="ind_task">
+<<<<<<< HEAD
           <a href="/user_home/<%= task.id %>"><p><%= task.content %></p></a>
+=======
+          <p><%= task.content %></p>
+>>>>>>> c956099fddd3b32ae6c317129ae427e250006e68
         </div>
       <% end %>
     <% end %>
